@@ -575,7 +575,7 @@ class MirahezeMagicHooks {
 		$cwConfig = new GlobalVarConfig( 'cw' );
 
 		if ( $cwConfig->get( 'Closed' ) ) {
-			if ( $cwConfig->get( 'Private' ) && ( MediaWikiServices::getInstance->getPermissionManager->userHasRight( $user, 'managewiki' ) )) {
+			if ( $cwConfig->get( 'Private' ) && ( MediaWikiServices::getInstance()->getPermissionManager()->userHasRight( $user, 'managewiki' ) )) {
 				$siteNotice .= '
 				<table style="width: 100%;">
 				<tbody><tr><td style="font-size: 120%; border-left: 4px solid #180F67; background-color: #F7F6FF; padding: 10px 15px;">
@@ -594,7 +594,7 @@ class MirahezeMagicHooks {
 				</td></tr></tbody>
 			</table>';
 			} 
-			elseif ( $cwConfig->get( 'Private' ) && ( !MediaWikiServices::getInstance->getPermissionManager->userHasRight( $user, 'managewiki' ) ) ) {
+			elseif ( $cwConfig->get( 'Private' ) && ( !MediaWikiServices::getInstance()->getPermissionManager()->userHasRight( $user, 'managewiki' ) ) ) {
 				$siteNotice .= '
 				<table style="width: 100%;">
 				<tbody><tr><td style="font-size: 120%; border-left: 4px solid #180F67; background-color: #F7F6FF; padding: 10px 15px;">
