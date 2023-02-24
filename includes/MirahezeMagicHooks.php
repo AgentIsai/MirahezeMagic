@@ -590,66 +590,10 @@ class MirahezeMagicHooks {
 		$cwConfig = new GlobalVarConfig( 'cw' );
 
 		if ( $cwConfig->get( 'Closed' ) ) {
-			if ( $cwConfig->get( 'Private' ) && ( MediaWikiServices::getInstance()->getPermissionManager()->userHasRight( $user, 'managewiki' ) )) {
-				$siteNotice .= '
-				<table style="width: 100%;">
-				<tbody><tr><td style="font-size: 120%; border-left: 4px solid #180F67; background-color: #F7F6FF; padding: 10px 15px;">
-					<div data-nosnippet style="padding-top:0.3em; padding-bottom:0.1em;">
-						<div class="floatleft"><img alt="Information" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/OOjs_UI_icon_info.svg" decoding="async" width="50" height="50"></div>
-						<div style="padding-bottom: 15px; font-size: 13pt; color: black;">'  . $skin->msg( 'miraheze-sitenotice-closed' )->parse() . '</div>
-
-						 <span id="sitenotice-learnmore-button" class="oo-ui-widget oo-ui-widget-enabled oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-iconElement oo-ui-labelElement oo-ui-buttonWidget">
-							<a class="oo-ui-buttonElement-button" role="button" tabindex="0" href="https://meta.miraheze.org/wiki/Special:MyLanguage/MediaWiki/1.39">
-								<span class="oo-ui-iconElement-icon oo-ui-icon-notice"></span>
-								<span class="oo-ui-labelElement-label">' . $skin->msg( 'miraheze-test2-learnmore' )->escaped() . '</span>
-								<span class="oo-ui-indicatorElement-indicator oo-ui-indicatorElement-noIndicator"></span>
-							</a>
-						</span>
-					</div>
-				</td></tr></tbody>
-			</table>';
-			} 
-			elseif ( $cwConfig->get( 'Private' ) && ( !MediaWikiServices::getInstance()->getPermissionManager()->userHasRight( $user, 'managewiki' ) ) ) {
-				$siteNotice .= '
-				<table style="width: 100%;">
-				<tbody><tr><td style="font-size: 120%; border-left: 4px solid #180F67; background-color: #F7F6FF; padding: 10px 15px;">
-					<div data-nosnippet style="padding-top:0.3em; padding-bottom:0.1em;">
-						<div class="floatleft"><img alt="Information" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/OOjs_UI_icon_info.svg" decoding="async" width="50" height="50"></div>
-						<div style="padding-bottom: 15px; font-size: 13pt; color: black;">'  . $skin->msg( 'miraheze-test-closed' )->parse() . '</div>
-
-						 <span id="sitenotice-learnmore-button" class="oo-ui-widget oo-ui-widget-enabled oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-iconElement oo-ui-labelElement oo-ui-buttonWidget">
-							<a class="oo-ui-buttonElement-button" role="button" tabindex="0" href="https://meta.miraheze.org/wiki/Special:MyLanguage/MediaWiki/1.39">
-								<span class="oo-ui-iconElement-icon oo-ui-icon-notice"></span>
-								<span class="oo-ui-labelElement-label">' . $skin->msg( 'miraheze-sitenotice-learnmore' )->escaped() . '</span>
-								<span class="oo-ui-indicatorElement-indicator oo-ui-indicatorElement-noIndicator"></span>
-							</a>
-						</span>
-					</div>
-				</td></tr></tbody>
-			</table>';
-			}
-			
-			else {
-				$siteNotice .= '
-				<table style="width: 100%;">
-				<tbody><tr><td style="font-size: 120%; border-left: 4px solid #180F67; background-color: #F7F6FF; padding: 10px 15px;">
-					<div data-nosnippet style="padding-top:0.3em; padding-bottom:0.1em;">
-						<div class="floatleft"><img alt="Information" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/OOjs_UI_icon_info.svg" decoding="async" width="50" height="50"></div>
-						<div style="padding-bottom: 15px; font-size: 13pt; color: black;">
-							Miraheze will be upgrading to the latest version of MediaWiki (1.39) on Saturday, 21 January 2023 from <b><u>22:00 UTC</u></b> to approximately 01:00 UTC on Sunday, 22 January 2023. During this time, you will not be able to save changes to your wiki. Please make sure to save any edits at least 5 minutes before the upgrade begins.
-						</div>
-
-						 <span id="sitenotice-learnmore-button" class="oo-ui-widget oo-ui-widget-enabled oo-ui-buttonElement oo-ui-buttonElement-framed oo-ui-iconElement oo-ui-labelElement oo-ui-buttonWidget">
-							<a class="oo-ui-buttonElement-button" role="button" tabindex="0" href="https://meta.miraheze.org/wiki/Special:MyLanguage/MediaWiki/1.39">
-								<span class="oo-ui-iconElement-icon oo-ui-icon-notice"></span>
-								<span class="oo-ui-labelElement-label">' . $skin->msg( 'miraheze-sitenotice-learnmore' )->escaped() . '</span>
-								<span class="oo-ui-indicatorElement-indicator oo-ui-indicatorElement-noIndicator"></span>
-							</a>
-						</span>
-					</div>
-				</td></tr></tbody>
-			</table>
-';
+			if ( $cwConfig->get( 'Private' ) ) {
+				$siteNotice .= '<div class="wikitable" style="text-align: center; width: 90%; margin-left: auto; margin-right:auto; padding: 15px; border: 4px solid black; background-color: #EEE;"> <span class="plainlinks"> <img src="https://static.miraheze.org/metawiki/0/02/Wiki_lock.png" align="left" style="width:80px;height:90px;">' . $skin->msg( 'miraheze-sitenotice-closed-private' )->parse() . '</span></div>';
+			} else {
+				$siteNotice .= '<div class="wikitable" style="text-align: center; width: 90%; margin-left: auto; margin-right:auto; padding: 15px; border: 4px solid black; background-color: #EEE;"> <span class="plainlinks"> <img src="https://static.miraheze.org/metawiki/0/02/Wiki_lock.png" align="left" style="width:80px;height:90px;">' . $skin->msg( 'miraheze-sitenotice-closed' )->parse() . '</span></div>';
 			}
 		} elseif ( $cwConfig->get( 'Inactive' ) && $cwConfig->get( 'Inactive' ) !== 'exempt' ) {
 			if ( $cwConfig->get( 'Private' ) ) {
