@@ -347,6 +347,10 @@ class MirahezeMagicHooks {
 			'grouppage-bot',
 			'group-bot-member',
 			'grouppage-user',
+			'group-suppress',
+			'group-suppress-member',
+			'grouppage-suppress',
+			'webauthn-module-description',
 		];
 
 		if ( in_array( $lcKey, $keys, true ) ) {
@@ -469,8 +473,7 @@ class MirahezeMagicHooks {
 			'CreateAccount',
 			'Notifications',
 			'OAuth',
-			'ResetPassword',
-			'Watchlist'
+			'ResetPassword'
 		];
 
 		if ( $user->isAllowed( 'interwiki' ) ) {
